@@ -1,0 +1,29 @@
+@media screen and (min-width: 750px) {
+    /* Increasing the size of the navbar*/
+    nav {
+        height:70px;
+    }
+
+    /*Pushing list to the right*/
+    ul {
+        margin-left: 75%;
+    }
+    
+}
+
+/*brand to italics*/
+.text-warning {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.7em;
+}
+/*Making form to be at the center*/
+.regform {
+    margin-left:25%;
+    margin-right:25%;
+}
+
+.form {
+    background-image: url("logo.jpg");
+    height: 590px;
+}

@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useContext } from 'react';
+import { LoginContext } from '../../contexts/LoginContext'
+import { MyProvider } from '../../contexts/MyProvider'
 import axios from "axios";
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './register.css';
 import Login from './Login';
 
 const API_URL = 'http://127.0.0.1:8000/registered/';
 
-class App extends Component {
+class Register extends Component {
 
   constructor(props) {
     super(props);
@@ -23,7 +24,7 @@ class App extends Component {
     }
   }
 
-  //registering detalils to react state 
+  //registering details to react state 
   handleRegister = (event) => {
     let inputName = event.target.name;
     let inputValue = event.target.value;
@@ -58,7 +59,8 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.status == 201) {
+    const { isRegistred, registered } = this.context;
+    if (this.state.status === 201) {
       return (
         <div>
           <Login />
@@ -68,24 +70,6 @@ class App extends Component {
     else {
       return (
         <div>
-          <nav className="navbar navbar-expand-sm bg-success navbar-dark">
-            <a className="navbar-brand " href="#">
-              <span className="text-warning">AgriHelp</span>
-            </a>
-            <Router>
-              <ul className="navbar-nav justify-content-center">
-                <li className="nav-item active">
-                  <Link className="nav-link" href="#">Register</Link>
-                </li>
-                <li className="nav-item active">
-                  <Link className="nav-link" to={'/login'}>Login</Link>
-                </li>  
-              </ul>
-              <Switch>
-                <Route exact path='/login' component={ Login } />
-              </Switch>
-            </Router>
-          </nav>
           <div className="form" onSubmit={this.registerFarmer}>
             <form className="regform">
               <div className="row">
@@ -138,4 +122,6 @@ class App extends Component {
   }
 }
 
-export default App;
+Register.contextType = LoginContext;
+
+export default Register;

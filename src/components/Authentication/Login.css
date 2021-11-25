@@ -1,0 +1,14 @@
+.logform {
+    align-items: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding-top: 7%;
+}
+
+@media screen and (max-width: 750px) {
+    .logform {
+        margin-left: 12%;
+        margin-right: 12%;
+    }
+    
+}

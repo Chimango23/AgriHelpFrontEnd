@@ -21,9 +21,7 @@
 .regform {
     margin-left:25%;
     margin-right:25%;
+    padding-top: 3%;
 }
 
-.form {
-    background-image: url("logo.jpg");
-    height: 590px;
-}
+
